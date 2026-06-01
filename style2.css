@@ -1,0 +1,73 @@
+/*RESET + GLOBALS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+/* BODY*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color:#242424;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+
+/*NAVBAR*/
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        border: 1px solid lightgrey;
+
+
+}
+
+nav ul li {
+    list-style: none;
+}
+
+/* LOGO*/
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* NAV-LINKS*/
+
+.nav-links {
+
+display: flex;
+gap: 50px;
+}
+
+/* IMAGES*/
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* LINKS*/
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* NAVBAR*/
+
+
+/* HERO SECTION*/
+
+.hero-section {
+    
+    min-width: 50;
+}
+
