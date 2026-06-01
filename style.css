@@ -1,6 +1,29 @@
 /* =========================================================
+   COLOR VARIABLES
+   ========================================================= */
+
+
+:root {
+
+  --primary-color: #242424;
+
+  --accent-color: #ffc017;
+
+  --background-color: #f7f4ed;
+
+  --white: #ffffff;
+
+  --text-light: #6b6b6b;
+
+}
+
+
+
+/* =========================================================
    CSS RESET
    ========================================================= */
+
+ 
 
 /*
   The universal selector (*) targets EVERY element on the page.
@@ -123,6 +146,28 @@ section {
 
 
 
+.features-highlights-section h2,
+.trending-articles-preview-section h2,
+.our-story-section h2{
+
+  margin-bottom: 50px;
+
+}
+
+.hero-section,
+.statistics-section,
+.our-story-section,
+.features-highlights-section,
+.trending-articles-preview-section,
+.membership-section,
+.write-your-story-section{
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+}
+
 /* =========================================================
    HEADINGS
    ========================================================= */
@@ -149,12 +194,15 @@ h3 {
 
   margin-bottom creates space below headings.
 */
+h2{
 
-h2 {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  margin-bottom: 30px;
+
+  text-align: center;
+
 }
-
 
 
 /*
@@ -244,8 +292,6 @@ p {
 
 header {
 
-  background-color: #f7f4ed;
-
   border-bottom: 1px solid #ddd;
 
   position: sticky;
@@ -283,9 +329,16 @@ nav {
   align-items: center;
 
   padding: 20px 10%;
-
-  background-color: #ffffff;
+   
 }
+
+header,
+nav {
+
+  background-color: var(--white);
+
+}
+
 
 
 
@@ -332,18 +385,37 @@ nav {
 /*
   transition creates smooth hover effect.
 */
-
 .nav-links a {
 
-  font-size: 1.1rem;
+  position: relative;
 
-  transition: 0.3s;
-  border: 1px solid black;
-  border-radius: 30px;
-  padding: 5px;
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  transition: color .3s ease;
+
 }
 
+.nav-links a::after {
 
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0;
+
+  height: 2px;
+
+  background-color: var(--primary-color);
+
+  transition: width .3s ease;
+
+}
 
 /*
   Hover effect improves interactivity.
@@ -351,7 +423,7 @@ nav {
 
 .nav-links a:hover {
 
-  color:rgb(62, 238, 76)
+  color:rgb(191, 144, 26)
 }
 
 
@@ -399,6 +471,8 @@ nav {
   gap: 60px;
 
   min-height: 60vh;
+  border-bottom:2px solid #f1e0e0;
+  
 }
 
 
@@ -421,11 +495,15 @@ nav {
 
 .hero-text h1 {
 
-  font-size: 5rem;
+  font-size: clamp(3.5rem, 8vw, 7rem);
 
-  line-height: 1.1;
+  line-height: 0.95;
 
-  margin-bottom: 25px;
+  letter-spacing: -3px;
+
+  max-width: 650px;
+
+  margin-bottom: 30px;
 }
 
 
@@ -433,12 +511,16 @@ nav {
 /*
   max-width prevents text from stretching too wide.
 */
+.hero-text p{
 
-.hero-text p {
+  font-size: 1.3rem;
 
-  font-size: 1.5rem;
+  color: var(--text-light);
 
-  max-width: 500px;
+  max-width: 550px;
+
+  margin-bottom: 20px;
+
 }
 
 
@@ -457,13 +539,70 @@ nav {
 /*
   Rounded corners soften design.
 */
+.hero-image img{
 
-.hero-image img {
+  border-radius:25px;
 
-  border-radius: 20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 
+
+/* =========================================================
+   STATISTICS SECTION
+   ========================================================= */
+
+.statistics-section{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:80px;
+
+  background:#ffffff;
+
+  text-align:center;
+
+  flex-wrap:wrap;
+
+  background-color: #f7ebeb;
+  
+}
+
+
+.stat-card{
+
+  padding:60px;
+
+  min-width:220px;
+
+  transition:all .3s ease;
+
+  background-color: rgb(243, 233, 219);
+}
+
+
+.stat-card h2{
+
+  font-size:3rem;
+
+  color:var(--primary-color);
+
+  margin-bottom:10px;
+}
+
+
+.stat-card p{
+
+  color:var(--text-light);
+  font-weight: bold;
+  
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+}
 
 /* =========================================================
    OUR STORY SECTION
@@ -555,21 +694,26 @@ nav {
 /*
   Card styling.
 */
+.feature-card{
 
-.feature-card {
+  background:#ffffff;
 
-  background-color: #ffffff;
+  padding:35px 25px;
 
-  padding: 30px 20px;
+  border-radius:20px;
 
-  border-radius: 18px;
+  text-align:center;
 
-  transition: 0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition:all .3s ease;
 }
 
+.feature-card p{
 
+  color: var(--text-light);
+
+}
 
 /*
   Hover animation.
@@ -577,16 +721,25 @@ nav {
 
 .feature-card:hover {
 
-  transform: translateY(-8px);
+  transform: translateY(-10px);
 }
 
 
 
 .feature-card h3 {
-
+   font-size: 1.4rem;
   margin-bottom: 15px;
 }
 
+
+.feature-card .material-symbols-outlined{
+
+  font-size:50px;
+
+  color:var(--accent-color);
+
+  margin-bottom:20px;
+}
 
 
 /* =========================================================
@@ -620,25 +773,33 @@ nav {
 /*
   overflow hidden prevents image overflow.
 */
+.article-card{
+  display: flex;
+  flex-direction: column;
 
-.article-card {
+  background:#ffffff;
 
-  background-color: #f7f4ed;
+  border-radius:20px;
 
-  border-radius: 18px;
+  overflow:hidden;
 
-  overflow: hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 
-  transition: 0.3s;
+  transition:.3s;
 }
 
+.article-card p{
 
+  padding:0 20px 20px;
 
-.article-card:hover {
+  color:var(--text-light);
 
-  transform: translateY(-8px);
 }
 
+.article-card:hover{
+
+  transform:translateY(-10px);
+}
 
 
 /*
@@ -670,6 +831,7 @@ nav {
 .article-card h3 {
 
   font-size: 1.3rem;
+   padding:20px 20px 10px;
 }
 
 
@@ -734,7 +896,7 @@ nav {
 
   align-items: center;
 
-  gap: 50px;
+  gap: 60px;
 }
 
 
@@ -753,37 +915,50 @@ nav {
 
 .membership-image img {
 
-  border-radius: 20px;
+  border-radius:25px;
+
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
 }
 
 
+.text-membership h2{
 
-.text-membership h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
 
-  margin-bottom: 20px;
+  margin-bottom:20px;
+
 }
 
+.text-membership p{
 
+  font-size:1.2rem;
 
-.text-membership p {
+  color:var(--text-light);
 
-  font-size: 1.1rem;
+  margin-bottom:25px;
+
 }
-
 
 
 /* =========================================================
    CTA SECTION
    ========================================================= */
+.get-started-cta-section{
 
-.get-started-cta-section {
+  background:var(--accent-color);
 
-  background-color: #ffc017;
+  text-align:center;
 
-  text-align: center;
+  border-radius:25px;
+
+  margin:80px 10%;
 }
 
+.get-started-cta-section h2{
 
+  font-size: clamp(2.5rem, 6vw, 4rem);
+
+}
 
 /*
   Centers CTA content.
@@ -797,12 +972,13 @@ nav {
 }
 
 
+.cta-content p{
 
-.cta-content p {
+  margin-top:15px;
 
-  font-size: 1.2rem;
+  margin-bottom:20px;
+
 }
-
 
 
 /* =========================================================
@@ -818,6 +994,35 @@ footer {
   text-align: center;
 
   padding: 30px;
+
+  
+}
+
+.footer-logo{
+
+  font-family:Georgia, serif;
+
+  font-size:2.5rem;
+
+  font-weight:bold;
+
+}
+
+
+.footer-links a{
+
+  color:#bdbdbd;
+
+  font-size:.95rem;
+
+}
+
+footer p{
+
+  font-size:.9rem;
+
+  color:#999;
+
 }
 
 
