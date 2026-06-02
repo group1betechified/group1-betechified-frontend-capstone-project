@@ -1,0 +1,1153 @@
+/* =========================================================
+   COLOR VARIABLES
+   ========================================================= */
+
+:root {
+  --primary-color: #242424;
+
+  --accent-color: #ffc017;
+
+  --background-color: #f7f4ed;
+
+  --white: #ffffff;
+
+  --text-light: #6b6b6b;
+}
+
+/* =========================================================
+   CSS RESET
+   ========================================================= */
+
+/*
+  The universal selector (*) targets EVERY element on the page.
+
+  Why use this?
+  Browsers add their own default spacing (margin & padding)
+  to elements like headings, paragraphs, body, ul, etc.
+
+  This reset removes those defaults so:
+  - all browsers behave consistently
+  - we control spacing ourselves
+  - layouts become predictable
+
+  box-sizing: border-box;
+  makes width calculations easier.
+
+  Without it:
+  width = content + padding + border
+
+  With border-box:
+  width includes padding and border already.
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   GLOBAL BODY STYLING
+   ========================================================= */
+
+/*
+  body styles affect the entire webpage.
+
+  font-family:
+  Sets the main font for all text unless overridden later.
+
+  background-color:
+  Medium uses soft warm backgrounds rather than pure white.
+
+  color:
+  Main text color.
+
+  line-height:
+  Controls vertical spacing between lines of text.
+  Makes text easier to read.
+*/
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f4ed;
+  color: #242424;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   IMAGE STYLING
+   ========================================================= */
+
+/*
+  width: 100%
+  Makes image fully fit its container.
+
+  display: block
+  Removes tiny unwanted spacing under images.
+  Images are inline by default.
+*/
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   LINK STYLING
+   ========================================================= */
+
+/*
+  text-decoration: none
+  Removes default underline from links.
+
+  color: inherit
+  Makes links inherit parent text color.
+*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================================
+   GLOBAL SECTION SPACING
+   ========================================================= */
+
+/*
+  Gives ALL sections:
+  - top spacing
+  - bottom spacing
+  - left/right breathing room
+
+  80px = top & bottom
+  10% = left & right
+
+  This creates consistency across sections.
+*/
+
+section {
+  padding: 80px 10%;
+}
+
+.features-highlights-section h2,
+.trending-articles-preview-section h2,
+.our-story-section h2 {
+  margin-bottom: 50px;
+}
+
+.hero-section,
+.statistics-section,
+.our-story-section,
+.features-highlights-section,
+.trending-articles-preview-section,
+.membership-section,
+.write-your-story-section {
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+/*
+  Medium uses serif fonts for headlines.
+
+  Serif fonts:
+  - elegant
+  - editorial
+  - storytelling feel
+*/
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, serif;
+}
+
+/*
+  h2 used for section titles.
+
+  margin-bottom creates space below headings.
+*/
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+/*
+  Global paragraph size.
+*/
+
+p {
+  font-size: 1rem;
+}
+
+/* =========================================================
+   BUTTON STYLING
+   ========================================================= */
+
+/*
+  We grouped multiple button classes together
+  because they share similar styles.
+
+  display: inline-block
+  allows:
+  - padding
+  - width
+  - margin
+
+  border-radius creates pill-shaped buttons.
+*/
+
+.get-started-btn,
+.start-writing-btn,
+.join-now-btn,
+.cta-btn {
+  display: inline-block;
+
+  background-color: #191919;
+  color: #ffffff;
+
+  padding: 12px 28px;
+
+  border-radius: 30px;
+
+  margin-top: 20px;
+
+  transition: 0.3s ease;
+
+  font-weight: bold;
+}
+
+/*
+  :hover applies styles when mouse enters element.
+
+  transform: translateY(-2px)
+  slightly lifts button upward.
+*/
+
+.get-started-btn:hover,
+.start-writing-btn:hover,
+.join-now-btn:hover,
+.cta-btn:hover {
+  background-color: #333333;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+/*
+  Sticky navbar remains visible while scrolling.
+
+  position: sticky
+  keeps navbar attached at top.
+
+  top: 0
+  sticks it to top edge.
+
+  z-index prevents overlap problems.
+*/
+
+header {
+  border-bottom: 1px solid #ddd;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+}
+
+/* =========================================================
+   NAVBAR LAYOUT
+   ========================================================= */
+
+/*
+  display: flex
+  activates Flexbox.
+
+  justify-content: space-between
+  pushes:
+  logo -> left
+  nav links -> right
+
+  align-items: center
+  vertically centers items.
+*/
+
+nav {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 20px 10%;
+}
+
+header,
+nav {
+  background-color: var(--white);
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+/*
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  padding: 0 10px;
+  border-radius: 25px;
+  background: linear-gradient(180deg, lightgray, gray);
+
+  font-weight: bold;
+
+  font-family: Georgia, serif;
+}
+*/
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+}
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+/*
+  display: flex
+  makes list items horizontal.
+
+  gap creates spacing between items.
+*/
+
+html{
+scroll-behavior:smooth;
+}
+
+.nav-links {
+  list-style: none;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+/*
+  transition creates smooth hover effect.
+*/
+.nav-links a {
+  position: relative;
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0;
+
+  height: 2px;
+
+  background-color: var(--primary-color);
+
+  transition: width 0.3s ease;
+}
+
+/*
+  Hover effect improves interactivity.
+*/
+
+.nav-links a:hover {
+  color: rgb(191, 144, 26);
+  font-weight: bolder;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:focus-visible,
+.footer-links a:focus-visible,
+.get-started-btn:focus-visible,
+.join-now-btn:focus-visible,
+.cta-btn:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   MATERIAL ICON
+   ========================================================= */
+
+/*
+  vertical-align aligns icon with text.
+*/
+
+.material-symbols-outlined {
+  vertical-align: middle;
+
+  margin-right: 4px;
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+/*
+  display: flex
+  places:
+  text beside image
+
+  gap creates spacing between columns.
+
+  min-height: 90vh
+  makes hero almost full screen height.
+*/
+
+.hero-section {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 60px;
+
+  min-height: 60vh;
+  border-bottom: 2px solid #f1e0e0;
+}
+
+/*
+  flex: 1
+  allows equal width sharing.
+*/
+
+.hero-text {
+  flex: 1;
+}
+
+/*
+  Large typography creates visual hierarchy.
+*/
+
+.hero-text h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+
+  max-width: 650px;
+
+  margin-bottom: 30px;
+}
+
+/*
+  max-width prevents text from stretching too wide.
+*/
+.hero-text p {
+  font-size: 1.3rem;
+
+  color: var(--text-light);
+
+  max-width: 550px;
+
+  margin-bottom: 20px;
+}
+
+/*
+  Hero image also takes equal space.
+*/
+
+.hero-image {
+  flex: 1;
+}
+
+/*
+  Rounded corners soften design.
+*/
+.hero-image img {
+  border-radius: 25px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.hero-section{
+position:relative;
+overflow:hidden;
+}
+
+
+.hero-section::before{
+content:"";
+position:absolute;
+top:-100px;
+right:-100px;
+width:300px;
+height:300px;
+background:rgba(255,192,23,.08);
+border-radius:50%;
+}
+
+
+/* =========================================================
+   STATISTICS SECTION
+   ========================================================= */
+
+.statistics-section {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 80px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  flex-wrap: wrap;
+
+  background-color: #f7ebeb;
+}
+
+.stat-card {
+  padding: 60px;
+
+  border-radius: 20px;
+
+  min-width: 220px;
+
+  transition: all 0.3s ease;
+
+  background-color: rgb(243, 233, 219);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card h2 {
+  font-size: 3rem;
+
+  color: var(--primary-color);
+
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+}
+
+/* =========================================================
+   OUR STORY SECTION
+   ========================================================= */
+
+.our-story-section {
+  background-color: #ffffff;
+
+  text-align: center;
+}
+
+/*
+  margin auto centers block horizontally.
+*/
+
+.our-story-image {
+  max-width: 700px;
+
+  margin: 30px auto;
+}
+
+.our-story-image img {
+  border-radius: 20px;
+}
+
+/*
+  Limits text width for readability.
+*/
+
+.our-story-text {
+  max-width: 500px;
+
+  margin: auto;
+}
+
+.our-story-text p {
+  font-size: 1.3rem;
+}
+
+.our-story-name-tagged {
+  background-color: #ebe6e6; /* Pure white background */
+  color: #000000; /* Black text color */
+  font-weight: bold; /* Bold text */
+  padding: 2px 6px; /* Adds a little breathing room around the text */
+  border-radius: 4px; /* Slightly rounds the corners for a cleaner look */
+}
+
+/* =========================================================
+   FEATURES SECTION
+   ========================================================= */
+
+.features-highlights-section {
+  background-color: #f7f4ed;
+
+  text-align: center;
+}
+
+/*
+  CSS Grid creates card layout.
+
+  repeat(4, 1fr)
+  means:
+  4 equal columns.
+*/
+
+.features-container {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+
+  margin-top: 40px;
+}
+
+/*
+  Card styling.
+*/
+.feature-card {
+  background: #ffffff;
+
+  padding: 35px 25px;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+.feature-card p {
+  color: var(--text-light);
+}
+
+/*
+  Hover animation.
+*/
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.feature-card .material-symbols-outlined {
+  font-size: 50px;
+
+  color: var(--accent-color);
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   ARTICLES SECTION
+   ========================================================= */
+
+.trending-articles-preview-section {
+  background-color: #ffffff;
+}
+
+/*
+  Another grid system for cards.
+*/
+
+.articles-container {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+
+  margin-top: 40px;
+}
+
+/*
+  overflow hidden prevents image overflow.
+*/
+.article-card {
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.article-card p {
+  padding: 0 20px 20px;
+
+  color: var(--text-light);
+}
+
+.article-card:hover {
+  transform: translateY(-10px);
+}
+
+/*
+  object-fit: cover
+  crops image properly without distortion.
+*/
+
+.article-card img {
+  height: 220px;
+
+  object-fit: cover;
+}
+
+/*
+  Padding creates inner spacing.
+*/
+
+.article-card h3,
+.article-card p {
+  padding: 15px;
+}
+
+.article-card h3 {
+  font-size: 1.3rem;
+  padding: 20px 20px 10px;
+}
+
+/* =========================================================
+   WRITE SECTION
+   ========================================================= */
+
+.write-your-story-section {
+  background-color: #242424;
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+/*
+  Keeps content centered and narrow.
+*/
+
+.write-content {
+  max-width: 700px;
+
+  margin: auto;
+}
+
+.write-content p {
+  margin-top: 20px;
+
+  font-size: 1.1rem;
+}
+
+
+
+
+
+/* =========================================================
+   TESTIMONIAL SECTION
+   ========================================================= */
+
+.testimonial-section {
+  background-color: #ffffff;
+}
+
+/*
+  Another grid system for cards.
+*/
+
+.testimonial-container {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  margin-top: 40px;
+}
+
+/*
+  overflow hidden prevents image overflow.
+*/
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.testimonial-card p {
+  padding: 0 20px 20px;
+
+  color: var(--text-light);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+}
+
+/*
+  object-fit: cover
+  crops image properly without distortion.
+*/
+
+.testimonial-card img {
+  height: 220px;
+
+  object-fit: cover;
+}
+
+/*
+  Padding creates inner spacing.
+*/
+/*
+.testimonial-card h4,
+.testimonial-card h5,
+*/
+.testimonial-card p {
+  padding: 15px;
+}
+
+.testimonial-card h4 {
+  font-size: 1.3rem;
+  padding: 20px 20px 10px;
+}
+
+
+.testimonial-card h4 {
+  padding: 20px 20px 10px;
+}
+
+.testimonial-card h5 {
+  padding: 0 20px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+/* =========================================================
+   MEMBERSHIP SECTION
+   ========================================================= */
+
+.membership-section {
+  background-color: #ffffff;
+}
+
+/*
+  Flexbox layout again.
+
+  Image and text appear side-by-side.
+*/
+
+.membership-content {
+  display: flex;
+
+  align-items: center;
+
+  gap: 60px;
+}
+
+/*
+  Equal width sharing.
+*/
+
+.membership-image,
+.text-membership {
+  flex: 1;
+}
+
+.membership-image img {
+  border-radius: 25px;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.text-membership h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+
+  margin-bottom: 20px;
+}
+
+.text-membership p {
+  font-size: 1.2rem;
+
+  color: var(--text-light);
+
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   CTA SECTION
+   ========================================================= */
+.get-started-cta-section {
+  background: var(--accent-color);
+
+  text-align: center;
+
+  border-radius: 25px;
+
+  margin: 80px 10%;
+}
+
+.get-started-cta-section h2 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+/*
+  Centers CTA content.
+*/
+
+.cta-content {
+  max-width: 700px;
+
+  margin: auto;
+}
+
+.cta-content p {
+  margin-top: 15px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+
+footer {
+  background-color: #191919;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  padding: 30px;
+  min-height: 20vh;
+  display: flex;
+
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+  
+
+
+.footer-logo {
+  font-family: Georgia, serif;
+
+  font-size: 2.0rem;
+
+  font-weight: bold;
+}
+
+.footer-links a {
+  color: #bdbdbd;
+
+  font-size: 1rem;
+
+  margin: 10px;
+}
+
+footer p {
+  font-size: 0.9rem;
+
+  color: #999;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/*
+  Tablet layout breakpoint.
+
+  max-width: 992px
+  means:
+  styles apply BELOW 992px.
+*/
+
+@media (max-width: 992px) {
+  /*
+    Stack hero vertically.
+  */
+
+  .hero-section,
+  .membership-content {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  /*
+    Reduce hero heading size.
+  */
+
+  .hero-text h1 {
+    font-size: 4rem;
+  }
+
+  /*
+    Change 4-column grid to 2-column grid.
+  */
+
+  .features-container,
+  .articles-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*
+    Center paragraph.
+  */
+
+  .hero-text p {
+    margin: auto;
+  }
+}
+
+/* =========================================================
+   MOBILE BREAKPOINT
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /*
+    Stack navbar items vertically.
+  */
+
+  nav {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+  }
+
+  /*
+    Smaller hero heading.
+  */
+
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  /*
+    Single column layout.
+  */
+
+  .features-container,
+  .articles-container {
+    grid-template-columns: 1fr;
+  }
+
+  /*
+    Reduce section spacing.
+  */
+
+  section {
+    padding: 60px 7%;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 480px) {
+  /*
+    Even smaller heading for phones.
+  */
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+@media (max-width: 992px) {
+  .features-container,
+  .articles-container,
+  .testimonial-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .features-container,
+  .articles-container,
+  .testimonial-container {
+    grid-template-columns: 1fr;
+  }
+}
