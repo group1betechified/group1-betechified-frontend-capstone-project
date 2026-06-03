@@ -1018,7 +1018,7 @@ footer p {
 
 
 /* =========================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN-DEVICES UNDER 992PX
    ========================================================= */
 
 /*
@@ -1041,6 +1041,13 @@ footer p {
     text-align: center;
   }
 
+  /* Reduce grid-template-columns to from repeat(4,1fr) 2, 1fr */
+
+  features-container,
+  .articles-container,
+  .testimonial-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
   /*
     Reduce hero heading size.
   */
@@ -1137,11 +1144,7 @@ footer p {
 
 
 @media (max-width: 992px) {
-  .features-container,
-  .articles-container,
-  .testimonial-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 }
 
 @media (max-width: 768px) {
