@@ -1075,7 +1075,7 @@ footer p {
 }
 
 /* =========================================================
-   MOBILE BREAKPOINT
+   MOBILE BREAKPOINT -DEVICES UNDER 768PX
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -1104,9 +1104,9 @@ footer p {
   /*
     Single column layout.
   */
-
-  .features-container,
-  .articles-container {
+   .features-container,
+  .articles-container,
+  .testimonial-container {
     grid-template-columns: 1fr;
   }
 
@@ -1120,7 +1120,7 @@ footer p {
 }
 
 /* =========================================================
-   SMALL MOBILE DEVICES
+   SMALL MOBILE DEVICES-DEVICES UNDER 480PX
    ========================================================= */
 
 @media (max-width: 480px) {
@@ -1143,14 +1143,3 @@ footer p {
 
 
 
-@media (max-width: 992px) {
-  
-}
-
-@media (max-width: 768px) {
-  .features-container,
-  .articles-container,
-  .testimonial-container {
-    grid-template-columns: 1fr;
-  }
-}
