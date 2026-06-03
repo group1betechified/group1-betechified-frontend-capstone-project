@@ -433,6 +433,8 @@ scroll-behavior:smooth;
 
 .hero-section {
   display: flex;
+  position:relative;
+  overflow:hidden;
 
   justify-content: space-between;
 
@@ -498,13 +500,6 @@ scroll-behavior:smooth;
 
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
-
-
-.hero-section{
-position:relative;
-overflow:hidden;
-}
-
 
 .hero-section::before{
 content:"";
