@@ -1,0 +1,377 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* The reason why I used Color variables is becos 
+  they allow for easier maintenance and theming so if i want to use
+   any colour here I just need to change the variable value
+    if needed and call it where it is needed */
+  --paper: #f7f4ed;
+  --ink: #242424;
+  --line: #242424;
+  --soft-line: rgba(36, 36, 36, 0.22);
+}
+html,
+body {
+  margin: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+/* from here I started using the clamp function. 
+it allows for responsive design and can be used to give a range of values
+ for different screen sizes. so instead of the normal top right bottom left values
+ this one is top/bottom= 0, left/right= clamp(32px, 5.4vw, 104px) */
+.header-inner {
+  min-height: 114px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 clamp(32px, 5.4vw, 104px);
+}
+/* vw = viewport width */
+.logo {
+  flex: 0 0 auto;
+  font-size: clamp(42px, 3vw, 54px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 2.2vw, 40px);
+  min-width: 0;
+}
+
+.nav-link,
+.btn,
+.btn-secondary {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* white space is used to prevent text from wrapping. so we have no line breaks */
+.nav-link {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: clamp(16px, 1.08vw, 21px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  color: #fff;
+  background: #191919;
+  text-decoration: none;
+  font-size: clamp(16px, 1.08vw, 21px);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero {
+  min-height: calc(100svh - 114px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.48fr) minmax(360px, 0.72fr);
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.hero-text {
+  max-width: 1180px;
+  padding: /*top*/ clamp(80px, 7vw, 128px)
+   /*right*/ 0 
+   /*bottom*/ clamp(64px, 6vw, 112px)
+    /*left*/   clamp(32px, 5.4vw, 104px);
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(92px, 8.7vw, 172px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -5px;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero p {
+  max-width: 860px;
+  margin: clamp(54px, 4.2vw, 78px) 0 0;
+  font: 400 clamp(24px, 1.7vw, 32px) / 1.28 Arial, Helvetica, sans-serif;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 294px;
+  min-height: 68px;
+  margin-top: clamp(44px, 4.2vw, 76px);
+  padding: 18px 34px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: #191919;
+  font-size: clamp(22px, 1.55vw, 29px);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hero-graphics {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.hero-graphics img {
+  width: min(50vw, 790px);
+  max-width: none;
+  height: auto;
+  display: block;
+  transform: translate(3%, -12%);
+}
+
+.features {
+  padding: clamp(64px, 7vw, 112px) clamp(32px, 5.4vw, 104px);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.features-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.section-label {
+  margin: 0 0 18px;
+  font: 700 16px/1.2 Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.features h2 {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(46px, 5vw, 86px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -2px;
+}
+/* the grid template columns function 
+is used to create a responsive grid layout for the features section. 
+1fr means one fractional unit I learnt this from CSS Grid tutorials */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: clamp(42px, 5vw, 72px);
+  border-top: 1px solid var(--line);
+}
+/* soft-line is a variable for the light gray color used for subtle borders */
+.feature-grid article {
+  padding: 30px clamp(22px, 2.4vw, 42px) 10px 0;
+  border-right: 1px solid var(--soft-line);
+}
+
+.feature-grid article + article {
+  padding-left: clamp(22px, 2.4vw, 42px);
+}
+
+.feature-grid article:last-child {
+  border-right: 0;
+  /* last-child selects the last article element inside the grid */
+}
+
+.feature-grid h3 {
+  margin: 0 0 16px;
+  font: 700 24px/1.1 Arial, Helvetica, sans-serif;
+}
+
+.feature-grid p {
+  margin: 0;
+  font: 400 18px/1.45 Arial, Helvetica, sans-serif;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  font: 14px/1.5 Arial, Helvetica, sans-serif;
+}
+
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+}
+
+@media (max-width: 760px) {
+  .header-inner {
+    min-height: 86px;
+    padding: 0 34px;
+  }
+
+  .logo {
+    font-size: 48px;
+  }
+
+  .main-nav .nav-link {
+    display: none;
+  }
+
+  .btn {
+    min-height: 56px;
+    padding: 14px 25px;
+    font-size: 20px;
+  }
+  /* calc() is used to calculate the height of the hero section. 
+  svh = 1% of the viewport height */
+  .hero {
+    min-height: calc(100svh - 86px);
+    display: block;
+  }
+
+  .hero-text {
+    min-height: calc(100svh - 86px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 66px 34px 38px;
+  }
+
+  .hero h1 {
+    font-size: clamp(76px, 17vw, 124px);
+    line-height: 0.86;
+    letter-spacing: -3px;
+  }
+
+  .hero p {
+    max-width: 640px;
+    margin-top: 44px;
+    font-size: clamp(26px, 5.1vw, 34px);
+    line-height: 1.25;
+  }
+
+  .btn-secondary {
+    width: min(100%, 294px);
+    min-height: 68px;
+    margin-top: 84px;
+    font-size: 29px;
+    background: #0f8f12;
+  }
+
+  .hero-graphics {
+    display: none;
+  }
+
+  .features {
+    padding: 56px 34px;
+  }
+
+  .features h2 {
+    font-size: clamp(42px, 10vw, 68px);
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid article,
+  .feature-grid article + article {
+    padding: 28px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--soft-line);
+  }
+
+  .feature-grid article:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .header-inner {
+    min-height: 72px;
+    padding: 0 22px;
+  }
+
+  .logo {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+  .hero,
+  .hero-text {
+    min-height: calc(100svh - 72px);
+  }
+
+  .hero-text {
+    padding: 48px 28px 34px;
+  }
+
+  .hero h1 {
+    font-size: clamp(70px, 22vw, 92px);
+    letter-spacing: -2px;
+  }
+
+  .hero p {
+    margin-top: 34px;
+    font-size: 25px;
+  }
+
+  .btn-secondary {
+    min-height: 58px;
+    margin-top: 58px;
+    font-size: 24px;
+  }
+
+  .features {
+    padding: 48px 28px;
+  }
+}
+
+/* It was fun learning CSS Grid 
+although it can be a bit tricky at first 
+😅 not sure if I remember all the details yeah */

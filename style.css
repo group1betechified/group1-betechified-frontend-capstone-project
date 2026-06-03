@@ -301,7 +301,7 @@ nav {
 /* =========================================================
    LOGO
    ========================================================= */
-
+/*
 .logo {
   display: flex;
   flex-direction: column;
@@ -314,6 +314,14 @@ nav {
 
   font-family: Georgia, serif;
 }
+*/
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+}
 
 /* =========================================================
    NAVIGATION LINKS
@@ -325,6 +333,10 @@ nav {
 
   gap creates spacing between items.
 */
+
+html{
+scroll-behavior:smooth;
+}
 
 .nav-links {
   list-style: none;
@@ -373,7 +385,22 @@ nav {
 
 .nav-links a:hover {
   color: rgb(191, 144, 26);
+  font-weight: bolder;
 }
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:focus-visible,
+.footer-links a:focus-visible,
+.get-started-btn:focus-visible,
+.join-now-btn:focus-visible,
+.cta-btn:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
 
 /* =========================================================
    MATERIAL ICON
@@ -467,10 +494,29 @@ nav {
   Rounded corners soften design.
 */
 .hero-image img {
-  border-radius: 25px;
-
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+ max-width: 400px;
+  height: auto;
+  display: block;
 }
+
+
+.hero-section{
+position:relative;
+overflow:hidden;
+}
+
+
+.hero-section::before{
+content:"";
+position:absolute;
+top:-100px;
+right:-100px;
+width:300px;
+height:300px;
+background:rgba(255,192,23,.08);
+border-radius:50%;
+}
+
 
 /* =========================================================
    STATISTICS SECTION
@@ -495,11 +541,15 @@ nav {
 .stat-card {
   padding: 60px;
 
+  border-radius: 20px;
+
   min-width: 220px;
 
   transition: all 0.3s ease;
 
   background-color: rgb(243, 233, 219);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card h2 {
@@ -555,6 +605,14 @@ nav {
 
 .our-story-text p {
   font-size: 1.3rem;
+}
+
+.our-story-name-tagged {
+  background-color: #ebe6e6; /* Pure white background */
+  color: #000000; /* Black text color */
+  font-weight: bold; /* Bold text */
+  padding: 2px 6px; /* Adds a little breathing room around the text */
+  border-radius: 4px; /* Slightly rounds the corners for a cleaner look */
 }
 
 /* =========================================================
@@ -730,6 +788,97 @@ nav {
   font-size: 1.1rem;
 }
 
+
+
+
+
+/* =========================================================
+   TESTIMONIAL SECTION
+   ========================================================= */
+
+.testimonial-section {
+  background-color: #ffffff;
+}
+
+/*
+  Another grid system for cards.
+*/
+
+.testimonial-container {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  margin-top: 40px;
+}
+
+/*
+  overflow hidden prevents image overflow.
+*/
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.testimonial-card p {
+  padding: 0 20px 20px;
+
+  color: var(--text-light);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+}
+
+/*
+  object-fit: cover
+  crops image properly without distortion.
+*/
+
+.testimonial-card img {
+  height: 220px;
+
+  object-fit: cover;
+}
+
+/*
+  Padding creates inner spacing.
+*/
+/*
+.testimonial-card h4,
+.testimonial-card h5,
+*/
+.testimonial-card p {
+  padding: 15px;
+}
+
+.testimonial-card h4 {
+  font-size: 1.3rem;
+  padding: 20px 20px 10px;
+}
+
+
+.testimonial-card h4 {
+  padding: 20px 20px 10px;
+}
+
+.testimonial-card h5 {
+  padding: 0 20px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
 /* =========================================================
    MEMBERSHIP SECTION
    ========================================================= */
@@ -818,6 +967,7 @@ nav {
    FOOTER
    ========================================================= */
 
+
 footer {
   background-color: #191919;
 
@@ -826,12 +976,27 @@ footer {
   text-align: center;
 
   padding: 30px;
+  min-height: 20vh;
+  display: flex;
+
+  flex-direction: column;
+  gap: 20px;
 }
+
+
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+  
+
 
 .footer-logo {
   font-family: Georgia, serif;
 
-  font-size: 2.5rem;
+  font-size: 2.0rem;
 
   font-weight: bold;
 }
@@ -839,7 +1004,9 @@ footer {
 .footer-links a {
   color: #bdbdbd;
 
-  font-size: 0.95rem;
+  font-size: 1rem;
+
+  margin: 10px;
 }
 
 footer p {
@@ -847,6 +1014,8 @@ footer p {
 
   color: #999;
 }
+
+
 
 /* =========================================================
    RESPONSIVE DESIGN
@@ -962,5 +1131,23 @@ footer p {
 
   .logo {
     font-size: 1.6rem;
+  }
+}
+
+
+
+@media (max-width: 992px) {
+  .features-container,
+  .articles-container,
+  .testimonial-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .features-container,
+  .articles-container,
+  .testimonial-container {
+    grid-template-columns: 1fr;
   }
 }
