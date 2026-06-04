@@ -352,5 +352,23 @@
 
       <small> © 2026 GRP-1 BeTechiFied. All rights reserved. </small>
     </footer>
+
+    <script defer>
+    async function getItems() {
+      const response = await fetch('/items'); // relative path
+      const data = await response.json();
+      document.getElementById('output').innerText = JSON.stringify(data);
+    }
+
+    async function createItem() {
+      const response = await fetch('/items', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: 'New Item' })
+      });
+      const data = await response.json();
+      document.getElementById('output').innerText = JSON.stringify(data);
+    }
+  </script>
   </body>
 </html>
