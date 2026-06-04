@@ -317,7 +317,7 @@ nav {
 */
 
 .logo {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 700;
   color: var(--primary-color);
   letter-spacing: -1px;
@@ -432,9 +432,9 @@ scroll-behavior:smooth;
 */
 
 .hero-section {
-  position: relative;
-  overflow: hidden;
   display: flex;
+  position:relative;
+  overflow:hidden;
 
   justify-content: space-between;
 
@@ -501,20 +501,15 @@ scroll-behavior:smooth;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-
-
 .hero-section::before{
 content:"";
 position:absolute;
 top:-100px;
 right:-100px;
-width:350px;
-height:350px;
+width:300px;
+height:300px;
 background:rgba(255,192,23,.08);
 border-radius:50%;
-background:rgba(255,192,23,.08);
-top: -100px;
-right: -100px;
 }
 
 
@@ -1017,6 +1012,96 @@ footer p {
 
 
 
+
+@media (max-width:1200px) {
+
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+}
+  
+  
+}
+
+
+@media (max-width:1100px) {
+
+
+header {
+  position:static;
+  
+}
+
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+}
+  
+
+
+  nav {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .nav-links,
+  .hero-section,
+  .membership-content {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  /* Reduce grid-template-columns to from repeat(4,1fr) 2, 1fr */
+
+  features-container,
+  .articles-container,
+  .testimonial-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /*
+    Reduce hero heading size.
+  */
+
+  .hero-text h1 {
+    font-size: 4rem;
+  }
+
+  /*
+    Change 4-column grid to 2-column grid.
+  */
+
+  .features-container,
+  .articles-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*
+    Center paragraph.
+  */
+
+  .hero-text p {
+    margin: auto;
+  }
+
+
+
+  .footer-links {
+    display:flex;
+    flex-direction: column;
+  }
+}
+
+
+
+
 /* =========================================================
    RESPONSIVE DESIGN-DEVICES UNDER 992PX
    ========================================================= */
@@ -1030,6 +1115,21 @@ footer p {
 */
 
 @media (max-width: 992px) {
+
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+
+  
+}
+
+
+
+
+
   /*
     Stack hero vertically.
   */
@@ -1071,6 +1171,12 @@ footer p {
 
   .hero-text p {
     margin: auto;
+  }
+
+
+  .footer-links {
+    display:flex;
+    flex-direction: column;
   }
 }
 
@@ -1117,6 +1223,13 @@ footer p {
   section {
     padding: 60px 7%;
   }
+
+
+  .footer-links {
+    display:flex;
+    flex-direction: column;
+  }
+
 }
 
 /* =========================================================
@@ -1138,6 +1251,12 @@ footer p {
 
   .logo {
     font-size: 1.6rem;
+  }
+
+
+  .footer-links {
+    display:flex;
+    flex-direction: column;
   }
 }
 
