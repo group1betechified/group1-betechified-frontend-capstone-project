@@ -1030,6 +1030,12 @@ footer p {
 @media (max-width:1100px) {
 
 
+header {
+  position:static;
+  
+}
+
+
 .logo {
   font-size: 2rem;
   font-weight: 700;
